@@ -1,9 +1,13 @@
-export const StringForm = ({
+export const InfoForm = ({
   modules,
   inputs,
   onSubmit,
   onModulesChange,
   onInputsChange,
+  inverter,
+  onInverterChange,
+  battery,
+  onBatteryChange,
 }) => {
   return (
     <form onSubmit={onSubmit}>
@@ -12,6 +16,18 @@ export const StringForm = ({
         value={modules}
         placeholder="Number of modules"
         onChange={onModulesChange}
+      />
+      <input
+        type="text"
+        value={inverter}
+        placeholder="Inverter"
+        onChange={onInverterChange}
+      />
+      <input
+        type="text"
+        value={battery}
+        placeholder="Battery"
+        onChange={onBatteryChange}
       />
       <input
         type="number"

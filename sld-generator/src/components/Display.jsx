@@ -1,4 +1,4 @@
-export const Display = ({ strings }) => {
+export const Display = ({ strings, inverter, battery }) => {
   return (
     <div>
       <h3>
@@ -10,6 +10,10 @@ export const Display = ({ strings }) => {
           String {i + 1}: {panels} modules
         </p>
       ))}
+      <h3>Inverter:</h3>
+      <p> {inverter}</p>
+      <h3>Battery:</h3>
+      <p> {battery}</p>
     </div>
   );
 };
