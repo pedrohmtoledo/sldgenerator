@@ -4,57 +4,35 @@ import { splitStrings } from './helpers/splitStrings';
 import { Display } from './components/Display';
 import { InfoForm } from './components/InfoForm';
 
+const emptyForm = { inverter: '', battery: '', modulesQty: '', inputsQty: '' };
 function App() {
-  const [newModules, setNewModules] = useState('');
-  const [pvStrings, setPvStrings] = useState([]);
-  const [inverterInputs, setInverterInputs] = useState('');
-  const [newInverter, setNewInverter] = useState('');
-  const [inverter, setInverter] = useState('');
-  const [newBattery, setNewBattery] = useState('');
-  const [battery, setBattery] = useState('');
+  const [form, setForm] = useState(emptyForm);
+  const [systemConfig, setSystemConfig] = useState(null);
 
-  const handleModuleChange = (event) => {
-    setNewModules(event.target.value);
-  };
-
-  const handleInverterInputsChange = (event) => {
-    setInverterInputs(event.target.value);
-  };
-  const handleInverterChange = (event) => {
-    setNewInverter(event.target.value);
-  };
-  const handleBatteryChange = (event) => {
-    setNewBattery(event.target.value);
+  const handleChange = (event) => {
+    console.log(event.target.name, event.target.value);
+    setForm({ ...form, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    setPvStrings(splitStrings(Number(newModules), Number(inverterInputs)));
-    setInverter(newInverter);
-    setBattery(newBattery);
-    setNewModules('');
-    setNewInverter('');
-    setNewBattery('');
-    setInverterInputs('');
+    setSystemConfig({
+      strings: splitStrings(Number(form.modulesQty), Number(form.inputsQty)),
+      inverter: form.inverter,
+      battery: form.battery,
+    });
+    setForm(emptyForm);
   };
+
   return (
     <div>
       <h1>String planner</h1>
       <InfoForm
         onSubmit={handleSubmit}
-        modules={newModules}
-        onModulesChange={handleModuleChange}
-        inputs={inverterInputs}
-        onInputsChange={handleInverterInputsChange}
-        inverter={newInverter}
-        onInverterChange={handleInverterChange}
-        battery={newBattery}
-        onBatteryChange={handleBatteryChange}
+        formFilled={form}
+        onChange={handleChange}
       />
-      {pvStrings.length > 0 && (
-        <Display strings={pvStrings} inverter={inverter} battery={battery} />
-      )}
+      {systemConfig && <Display systemConfig={systemConfig} />}
     </div>
   );
 }

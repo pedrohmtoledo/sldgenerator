@@ -1,19 +1,20 @@
-export const Display = ({ strings, inverter, battery }) => {
+export const Display = ({ systemConfig }) => {
   return (
     <div>
       <h3>
-        Modules quantity: {strings.reduce((prev, curr) => prev + curr, 0)} |
-        String quantity: {strings.length}
+        Modules quantity:{' '}
+        {systemConfig.strings.reduce((prev, curr) => prev + curr, 0)} | String
+        quantity: {systemConfig.strings.length}
       </h3>
-      {strings.map((panels, i) => (
+      {systemConfig.strings.map((panels, i) => (
         <p key={i}>
           String {i + 1}: {panels} modules
         </p>
       ))}
       <h3>Inverter:</h3>
-      <p> {inverter}</p>
+      <p> {systemConfig.inverter}</p>
       <h3>Battery:</h3>
-      <p> {battery}</p>
+      <p> {systemConfig.battery}</p>
     </div>
   );
 };

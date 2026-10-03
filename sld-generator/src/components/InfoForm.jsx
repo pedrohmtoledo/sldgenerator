@@ -1,39 +1,33 @@
-export const InfoForm = ({
-  modules,
-  inputs,
-  onSubmit,
-  onModulesChange,
-  onInputsChange,
-  inverter,
-  onInverterChange,
-  battery,
-  onBatteryChange,
-}) => {
+export const InfoForm = ({ formFilled, onSubmit, onChange }) => {
   return (
     <form onSubmit={onSubmit}>
       <input
+        name="modulesQty"
         type="number"
-        value={modules}
+        value={formFilled.modulesQty}
         placeholder="Number of modules"
-        onChange={onModulesChange}
+        onChange={onChange}
       />
       <input
+        name="inverter"
         type="text"
-        value={inverter}
+        value={formFilled.inverter}
         placeholder="Inverter"
-        onChange={onInverterChange}
+        onChange={onChange}
       />
       <input
+        name="battery"
         type="text"
-        value={battery}
+        value={formFilled.battery}
         placeholder="Battery"
-        onChange={onBatteryChange}
+        onChange={onChange}
       />
       <input
+        name="inputsQty"
         type="number"
-        value={inputs}
+        value={formFilled.inputs}
         placeholder="How many inputs inverter has"
-        onChange={onInputsChange}
+        onChange={onChange}
       />
       <button type="submit">save</button>
     </form>
