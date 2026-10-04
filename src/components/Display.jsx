@@ -11,10 +11,18 @@ export const Display = ({ systemConfig }) => {
           String {i + 1}: {panels} modules
         </p>
       ))}
-      <h3>Inverter:</h3>
-      <p> {systemConfig.inverter}</p>
-      <h3>Battery:</h3>
-      <p> {systemConfig.battery}</p>
+      {systemConfig.inverter && (
+        <>
+          <h3>Inverter:</h3>
+          <p> {systemConfig.inverter}</p>
+        </>
+      )}
+      {systemConfig.battery && (
+        <>
+          <h3>Battery:</h3>
+          <p> {systemConfig.battery}</p>
+        </>
+      )}
     </div>
   );
 };

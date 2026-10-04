@@ -10,7 +10,6 @@ function App() {
   const [systemConfig, setSystemConfig] = useState(null);
 
   const handleChange = (event) => {
-    console.log(event.target.name, event.target.value);
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
@@ -26,7 +25,7 @@ function App() {
 
   return (
     <div>
-      <h1>String planner</h1>
+      <h1>SLD GENERATOR</h1>
       <InfoForm
         onSubmit={handleSubmit}
         formFilled={form}
