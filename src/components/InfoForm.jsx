@@ -25,7 +25,7 @@ export const InfoForm = ({ formFilled, onSubmit, onChange }) => {
       <input
         name="inputsQty"
         type="number"
-        value={formFilled.inputs}
+        value={formFilled.inputsQty}
         placeholder="How many inputs inverter has"
         onChange={onChange}
       />
