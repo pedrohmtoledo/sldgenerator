@@ -41,7 +41,7 @@ export const Display = ({ systemConfig }) => {
       {systemConfig.mprn && (
         <>
           <h3>MPRN:</h3>
-          <p> {systemConfig.MPRN}</p>
+          <p> {systemConfig.mprn}</p>
         </>
       )}
       {systemConfig.installerName && (
