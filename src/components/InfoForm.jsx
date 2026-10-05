@@ -29,7 +29,7 @@ export const InfoForm = ({ formFilled, onSubmit, onChange }) => {
         type="text"
         maxLength={25}
         value={formFilled.battery}
-        placeholder="Battery Battery"
+        placeholder="Battery"
         onChange={onChange}
       />
       <input
@@ -53,6 +53,13 @@ export const InfoForm = ({ formFilled, onSubmit, onChange }) => {
         maxLength={25}
         value={formFilled.customerAddress}
         placeholder="Customer address"
+        onChange={onChange}
+      />
+      <input
+        name="mprn"
+        type="number"
+        value={formFilled.mprn}
+        placeholder="MPRN"
         onChange={onChange}
       />
       <input
