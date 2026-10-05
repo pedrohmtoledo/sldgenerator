@@ -32,13 +32,7 @@ export const InfoForm = ({ formFilled, onSubmit, onChange }) => {
         placeholder="Battery"
         onChange={onChange}
       />
-      <input
-        name="inputsQty"
-        type="number"
-        value={formFilled.inputsQty}
-        placeholder="Inputs quantity"
-        onChange={onChange}
-      />
+
       <input
         name="customerName"
         type="text"
