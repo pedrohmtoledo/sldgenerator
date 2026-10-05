@@ -1,7 +1,49 @@
 body {
   margin: 0;
-  padding: 20px;
+  padding: 1.25rem;
   font-family: Arial, sans-serif;
   background: #f7f7f7;
   color: #222;
+  text-align: center;
+}
+
+form {
+  width: 100%;
+}
+
+.containerForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+fieldset {
+  width: 30%;
+  background: white;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+input {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.3rem;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  margin-top: 1.25rem;
+  border: 1px solid #222;
 }
