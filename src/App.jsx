@@ -17,6 +17,7 @@ const emptyForm = {
 function App() {
   const [form, setForm] = useState(emptyForm);
   const [systemConfig, setSystemConfig] = useState(null);
+  const [showDrawing, setShowDrawing] = useState(false);
 
   const handleChange = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -28,6 +29,10 @@ function App() {
       ...form,
       strings: splitStrings(Number(form.modulesQty), 2),
     });
+    setShowDrawing(false);
+  };
+  const handleGenerate = () => {
+    setShowDrawing(true);
     setForm(emptyForm);
   };
 
@@ -39,8 +44,13 @@ function App() {
         formFilled={form}
         onChange={handleChange}
       />
-      {systemConfig && <Display systemConfig={systemConfig} />}
-      {systemConfig && <Sldpreview systemConfig={systemConfig} />}
+      {systemConfig && (
+        <>
+          <Display systemConfig={systemConfig} />
+          <button onClick={handleGenerate}> Generate Drawing </button>
+        </>
+      )}
+      {showDrawing && <Sldpreview systemConfig={systemConfig} />}
     </div>
   );
 }

@@ -76,7 +76,7 @@ export const InfoForm = ({ formFilled, onSubmit, onChange }) => {
         />
       </fieldset>
       <fieldset>
-        Installer
+        <legend>Installer</legend>
         <label>Installer</label>
         <input
           name="installerName"

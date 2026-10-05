@@ -1,6 +1,7 @@
 export const Display = ({ systemConfig }) => {
   return (
     <div>
+      <h1>Review Information</h1>
       <h3>PV Module</h3>
       <p>Model: {systemConfig.modulesModel}</p>
       <p>
@@ -46,7 +47,7 @@ export const Display = ({ systemConfig }) => {
       )}
       {systemConfig.installerName && (
         <>
-          <h3>installer:</h3>
+          <h3>Installer:</h3>
           <p> {systemConfig.installerName}</p>
         </>
       )}
