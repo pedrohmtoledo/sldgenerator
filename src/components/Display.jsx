@@ -26,6 +26,30 @@ export const Display = ({ systemConfig }) => {
           <p> {systemConfig.battery}</p>
         </>
       )}
+      {systemConfig.customerName && (
+        <>
+          <h3>Customer:</h3>
+          <p> {systemConfig.customerName}</p>
+        </>
+      )}
+      {systemConfig.customerAddress && (
+        <>
+          <h3>Customer address:</h3>
+          <p> {systemConfig.customerAddress}</p>
+        </>
+      )}
+      {systemConfig.mprn && (
+        <>
+          <h3>MPRN:</h3>
+          <p> {systemConfig.MPRN}</p>
+        </>
+      )}
+      {systemConfig.installerName && (
+        <>
+          <h3>installer:</h3>
+          <p> {systemConfig.installerName}</p>
+        </>
+      )}
     </div>
   );
 };
