@@ -71,7 +71,8 @@ export const InfoForm = ({ formFilled, onSubmit, onChange }) => {
           <label>MPRN</label>
           <input
             name="mprn"
-            type="number"
+            type="text"
+            maxLength={12}
             value={formFilled.mprn}
             onChange={onChange}
           />
