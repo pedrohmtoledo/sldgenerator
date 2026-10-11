@@ -5,6 +5,8 @@ export const Header = () => {
     <header>
       {' '}
       <Link to="/">Home</Link>
+      <Link to="/dashboard">Dashboard</Link>
+      <Link to="/project">Project</Link>
     </header>
   );
 };

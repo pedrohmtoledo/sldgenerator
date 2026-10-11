@@ -100,3 +100,26 @@ footer {
   display: block;
   margin: 1.5rem auto;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  padding: 0.6rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #f0f0f0;
+  border-bottom: 2px solid #f5a623;
+}
+
+tbody tr:hover {
+  background: #fdf6e9;
+}

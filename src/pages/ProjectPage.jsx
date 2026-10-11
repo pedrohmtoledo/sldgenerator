@@ -9,6 +9,7 @@ const emptyForm = {
   battery: '',
   modulesQty: '',
   modulesModel: '',
+  strings: '',
   customerName: '',
   customerAddress: '',
   mprn: '',
