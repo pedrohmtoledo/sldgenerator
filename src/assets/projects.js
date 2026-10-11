@@ -1,0 +1,26 @@
+export const projects = [
+  {
+    id: 1,
+    modulesModel: 'JINKO JKM-465M-HRH-DP',
+    modulesQty: '23',
+    strings: 2,
+    inverter: 'HUAWEI SUN2000-5KTL-L1',
+    battery: 'HUAWEI LUNA2000-10KW-S1',
+    customerName: 'Pedro Toledo',
+    customerAddress: 'Dublin',
+    mprn: '12312312323',
+    installerName: 'SKE Engineering',
+  },
+  {
+    id: 2,
+    modulesModel: 'JINKO JKM-465M-HRH-DP',
+    modulesQty: '45',
+    strings: 2,
+    inverter: 'HUAWEI SUN2000-25KTL-MB0',
+    battery: 'HUAWEI LUNA2000-10KW-S1',
+    customerName: 'Henrique de Mello',
+    customerAddress: 'Cork',
+    mprn: '32132132123',
+    installerName: 'ESB',
+  },
+];

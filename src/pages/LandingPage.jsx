@@ -6,8 +6,8 @@ export const LandingPage = () => {
     <div>
       <h1>SLD Generator</h1>
       <p>Generate single line diagrams for solar PV installations.</p>
-      <Link to="/project" className="startProjectButton">
-        Start a new Single Line Diagram
+      <Link to="/dashboard" className="startProjectButton">
+        Dashboard
       </Link>
       <img src={exampleSld} className="exampleSld" />
     </div>

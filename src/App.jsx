@@ -4,6 +4,7 @@ import { ProjectPage } from './pages/ProjectPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { NotFound } from './components/NotFound';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/project" element={<ProjectPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/project/:id" element={<ProjectPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

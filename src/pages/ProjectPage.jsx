@@ -3,6 +3,9 @@ import { splitStrings } from '../helpers/splitStrings';
 import { Display } from '../components/Display';
 import { InfoForm } from '../components/InfoForm';
 import { Sldpreview } from '../components/Sldpreview';
+import { useParams } from 'react-router-dom';
+import { projects } from '../assets/projects';
+import { Navigate } from 'react-router-dom';
 
 const emptyForm = {
   inverter: '',
@@ -16,10 +19,16 @@ const emptyForm = {
   installerName: '',
 };
 export function ProjectPage() {
-  const [form, setForm] = useState(emptyForm);
+  const { id } = useParams();
+  const foundProject = projects.find((project) => project.id === Number(id));
+
+  const [form, setForm] = useState(foundProject || emptyForm);
   const [systemConfig, setSystemConfig] = useState(null);
   const [showDrawing, setShowDrawing] = useState(false);
 
+  if (id && !foundProject) {
+    return <Navigate to="/notFound" replace />;
+  }
   const handleChange = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };

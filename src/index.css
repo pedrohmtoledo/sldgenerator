@@ -60,6 +60,10 @@ main {
 }
 
 header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
   background: white;
   padding: 1rem;
   border-bottom: 3px solid #f5a623;
@@ -67,9 +71,11 @@ header {
 
 header a {
   color: #222;
-  font-size: 1.5rem;
-  font-weight: bold;
   text-decoration: none;
+}
+
+header a:hover {
+  color: #f5a623;
 }
 
 footer {
