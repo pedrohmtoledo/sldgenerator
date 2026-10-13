@@ -1,10 +1,14 @@
 import template1i2str from '../templates/sld-1-inv-2-string-v01.svg?raw';
 import { jsPDF } from 'jspdf';
 import 'svg2pdf.js';
+import { escapeXml } from '../helpers/escapeXml';
 
 export const Sldpreview = ({ systemConfig }) => {
   const preview = template1i2str
-    .replaceAll('{{INVERTER}}', systemConfig.inverter.toUpperCase())
+    .replaceAll(
+      '{{INVERTER}}',
+      escapeXml(systemConfig.installerName.toUpperCase())
+    )
     .replaceAll('{{BATTERY}}', systemConfig.battery.toUpperCase())
     .replaceAll('{{STRING_1}}', systemConfig.strings[0])
     .replaceAll('{{STRING_2}}', systemConfig.strings[1])
@@ -38,7 +42,7 @@ export const Sldpreview = ({ systemConfig }) => {
   };
   return (
     <>
-      <img src={sldUrl} />
+      <img src={sldUrl} alt="Single line diagram" className="sldPreview" />
       <button onClick={downloadPdf}>Download PDF</button>
     </>
   );

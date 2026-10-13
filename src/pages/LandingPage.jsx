@@ -9,7 +9,7 @@ export const LandingPage = () => {
       <Link to="/dashboard" className="startProjectButton">
         Dashboard
       </Link>
-      <img src={exampleSld} className="exampleSld" />
+      <img alt="preview of a sld" src={exampleSld} className="exampleSld" />
     </div>
   );
 };

@@ -1,7 +1,9 @@
-import { CreateTableHeader } from '../components/DashboardTable';
-import { CreateTableRows } from '../components/DashboardTable';
+import {
+  ProjectTableHeader,
+  ProjectTableRow,
+} from '../components/DashboardTable';
 import { Link } from 'react-router-dom';
-import { projects } from '../assets/projects';
+import { projects } from '../data/projects';
 
 export const DashboardPage = () => {
   return (
@@ -11,11 +13,11 @@ export const DashboardPage = () => {
       </Link>
       <table>
         <thead>
-          <CreateTableHeader list={projects} />
+          <ProjectTableHeader list={projects} />
         </thead>
         <tbody>
           {projects.map((project) => (
-            <CreateTableRows key={project.id} row={project} />
+            <ProjectTableRow key={project.id} row={project} />
           ))}
         </tbody>
       </table>

@@ -128,4 +128,11 @@ th {
 
 tbody tr:hover {
   background: #fdf6e9;
+  cursor: pointer;
+}
+
+.sldPreview {
+  width: 60%;
+  display: block;
+  margin: 1.25rem auto;
 }

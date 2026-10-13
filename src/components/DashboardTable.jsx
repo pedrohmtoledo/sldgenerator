@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-export const CreateTableHeader = () => {
+export const ProjectTableHeader = () => {
   return (
     <tr>
       <th>ID</th>
@@ -17,14 +17,21 @@ export const CreateTableHeader = () => {
   );
 };
 
-export const CreateTableRows = ({ row }) => {
+export const ProjectTableRow = ({ row }) => {
   const navigate = useNavigate();
-  const values = Object.values(row);
+
   return (
     <tr onClick={() => navigate(`/project/${row.id}`)}>
-      {values.map((value, i) => (
-        <td key={i}>{value}</td>
-      ))}
+      <td>{row.id}</td>
+      <td>{row.modulesModel}</td>
+      <td>{row.modulesQty}</td>
+      <td>2</td>
+      <td>{row.inverter}</td>
+      <td>{row.battery}</td>
+      <td>{row.customerName}</td>
+      <td>{row.customerAddress}</td>
+      <td>{row.mprn}</td>
+      <td>{row.installerName}</td>
     </tr>
   );
 };

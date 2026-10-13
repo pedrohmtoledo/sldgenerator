@@ -89,7 +89,7 @@ export const InfoForm = ({ formFilled, onSubmit, onChange }) => {
           />
         </fieldset>
       </div>
-      <button type="submit">Review</button>
+      <button type="submit">Generate Drawing</button>
     </form>
   );
 };
