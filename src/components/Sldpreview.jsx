@@ -3,7 +3,7 @@ import { jsPDF } from 'jspdf';
 import 'svg2pdf.js';
 import { escapeXml } from '../helpers/escapeXml';
 
-export const Sldpreview = ({ systemConfig }) => {
+export const Sldpreview = ({ systemConfig, onSave }) => {
   const preview = template1i2str
     .replaceAll(
       '{{INVERTER}}',
@@ -44,6 +44,9 @@ export const Sldpreview = ({ systemConfig }) => {
     <>
       <img src={sldUrl} alt="Single line diagram" className="sldPreview" />
       <button onClick={downloadPdf}>Download PDF</button>
+      <button type="submit" onClick={onSave}>
+        Save
+      </button>
     </>
   );
 };

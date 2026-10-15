@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { splitStrings } from '../helpers/splitStrings';
 import { InfoForm } from '../components/InfoForm';
 import { Sldpreview } from '../components/Sldpreview';
-import { useParams, Navigate } from 'react-router-dom';
-import { projects } from '../data/projects';
+import { useParams, Navigate, useNavigate } from 'react-router-dom';
+import { getProjects, saveProject } from '../helpers/projectStorage';
+//import { projects } from '../data/projects';
 
 const emptyForm = {
   inverter: '',
@@ -15,9 +16,13 @@ const emptyForm = {
   mprn: '',
   installerName: '',
 };
+
 export function ProjectPage() {
+  const navigate = useNavigate();
   const { id } = useParams();
-  const foundProject = projects.find((project) => project.id === Number(id));
+  const foundProject = getProjects().find(
+    (project) => project.id === Number(id)
+  );
 
   const [form, setForm] = useState(foundProject || emptyForm);
   const [systemConfig, setSystemConfig] = useState(null);
@@ -37,6 +42,11 @@ export function ProjectPage() {
     });
   };
 
+  const handleSave = () => {
+    saveProject(systemConfig);
+    navigate('/dashboard');
+  };
+
   return (
     <div>
       <InfoForm
@@ -45,7 +55,9 @@ export function ProjectPage() {
         onChange={handleChange}
       />
 
-      {systemConfig && <Sldpreview systemConfig={systemConfig} />}
+      {systemConfig && (
+        <Sldpreview systemConfig={systemConfig} onSave={handleSave} />
+      )}
     </div>
   );
 }
