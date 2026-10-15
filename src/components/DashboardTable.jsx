@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 export const ProjectTableHeader = () => {
   return (
     <tr>
-      <th>ID</th>
       <th>PV Module Model</th>
       <th>PV Module Quantity</th>
       <th>Strings</th>
@@ -13,16 +12,16 @@ export const ProjectTableHeader = () => {
       <th>Customer Address</th>
       <th>MPRN</th>
       <th>Installer Name</th>
+      <th>Delete</th>
     </tr>
   );
 };
 
-export const ProjectTableRow = ({ row }) => {
+export const ProjectTableRow = ({ row, onDelete }) => {
   const navigate = useNavigate();
 
   return (
     <tr onClick={() => navigate(`/project/${row.id}`)}>
-      <td>{row.id}</td>
       <td>{row.modulesModel}</td>
       <td>{row.modulesQty}</td>
       <td>2</td>
@@ -32,6 +31,18 @@ export const ProjectTableRow = ({ row }) => {
       <td>{row.customerAddress}</td>
       <td>{row.mprn}</td>
       <td>{row.installerName}</td>
+      <td>
+        <button
+          onClick={(event) => {
+            event.stopPropagation();
+            if (window.confirm('Delete this project?')) {
+              onDelete(row.id);
+            }
+          }}
+        >
+          Delete
+        </button>
+      </td>
     </tr>
   );
 };

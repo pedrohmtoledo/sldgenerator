@@ -3,11 +3,15 @@ import {
   ProjectTableRow,
 } from '../components/DashboardTable';
 import { Link } from 'react-router-dom';
-//import { projects } from '../data/projects';
-import { getProjects } from '../helpers/projectStorage';
+import { useState } from 'react';
+import { deleteProject, getProjects } from '../helpers/projectStorage';
 
 export const DashboardPage = () => {
-  const projects = getProjects();
+  const [projects, setProjects] = useState(getProjects);
+  const handleDelete = (id) => {
+    deleteProject(id);
+    setProjects(getProjects());
+  };
 
   return (
     <div>
@@ -23,7 +27,11 @@ export const DashboardPage = () => {
           </thead>
           <tbody>
             {projects.map((project) => (
-              <ProjectTableRow key={project.id} row={project} />
+              <ProjectTableRow
+                key={project.id}
+                row={project}
+                onDelete={handleDelete}
+              />
             ))}
           </tbody>
         </table>

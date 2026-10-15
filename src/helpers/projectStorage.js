@@ -20,3 +20,11 @@ export const saveProject = (newProject) => {
     localStorage.setItem('projects', JSON.stringify(savedNewListOfProjects));
   }
 };
+
+export const deleteProject = (id) => {
+  const projects = getProjects();
+
+  const updatedProjects = projects.filter((project) => project.id !== id);
+
+  localStorage.setItem('projects', JSON.stringify(updatedProjects));
+};

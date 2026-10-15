@@ -5,9 +5,6 @@ import { DashboardPage } from './pages/DashboardPage';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { NotFound } from './components/NotFound';
-import { projects } from './data/projects';
-
-localStorage.setItem('projects', JSON.stringify(projects));
 
 function App() {
   return (
