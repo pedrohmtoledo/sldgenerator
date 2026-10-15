@@ -72,7 +72,8 @@ export const InfoForm = ({ formFilled, onSubmit, onChange }) => {
           <input
             name="mprn"
             type="text"
-            maxLength={12}
+            inputMode="numeric"
+            maxLength={13}
             value={formFilled.mprn}
             onChange={onChange}
           />

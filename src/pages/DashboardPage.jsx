@@ -19,11 +19,11 @@ export const DashboardPage = () => {
         Start a new Single Line Diagram
       </Link>
       {projects.length === 0 ? (
-        <p>No projets yet</p>
+        <p>No projects yet</p>
       ) : (
         <table>
           <thead>
-            <ProjectTableHeader list={projects} />
+            <ProjectTableHeader />
           </thead>
           <tbody>
             {projects.map((project) => (

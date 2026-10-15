@@ -5,10 +5,7 @@ import { escapeXml } from '../helpers/escapeXml';
 
 export const Sldpreview = ({ systemConfig, onSave }) => {
   const preview = template1i2str
-    .replaceAll(
-      '{{INVERTER}}',
-      escapeXml(systemConfig.installerName.toUpperCase())
-    )
+    .replaceAll('{{INVERTER}}', systemConfig.inverter.toUpperCase())
     .replaceAll('{{BATTERY}}', systemConfig.battery.toUpperCase())
     .replaceAll('{{STRING_1}}', systemConfig.strings[0])
     .replaceAll('{{STRING_2}}', systemConfig.strings[1])
@@ -23,7 +20,10 @@ export const Sldpreview = ({ systemConfig, onSave }) => {
       systemConfig.customerAddress.toUpperCase()
     )
     .replaceAll('{{MPRN}}', `MPRN:${systemConfig.mprn}`)
-    .replaceAll('{{INSTALLER_NAME}}', systemConfig.installerName.toUpperCase())
+    .replaceAll(
+      '{{INSTALLER_NAME}}',
+      escapeXml(systemConfig.installerName.toUpperCase())
+    )
     .replaceAll('{{DATE}}', new Date().toLocaleDateString('en-IE'));
   const sldUrl =
     'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(preview);
@@ -38,15 +38,16 @@ export const Sldpreview = ({ systemConfig, onSave }) => {
       'image/svg+xml'
     ).documentElement;
     await doc.svg(svgElement, { x: 0, y: 0, width: 420, height: 297 });
-    doc.save(`SLD_${systemConfig.customerName}.pdf`);
+    const fileName = (systemConfig.customerName || 'drawing')
+      .toUpperCase()
+      .replaceAll(' ', '-');
+    doc.save(`SLD-${fileName}.pdf`);
   };
   return (
     <>
       <img src={sldUrl} alt="Single line diagram" className="sldPreview" />
       <button onClick={downloadPdf}>Download PDF</button>
-      <button type="submit" onClick={onSave}>
-        Save
-      </button>
+      <button onClick={onSave}>Save</button>
     </>
   );
 };

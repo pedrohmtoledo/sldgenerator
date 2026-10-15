@@ -13,9 +13,9 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/project" element={<ProjectPage />} />
+          <Route path="/project" element={<ProjectPage key="new" />} />
           <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/project/:id" element={<ProjectPage />} />
+          <Route path="/project/:id" element={<ProjectPage key="existing" />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

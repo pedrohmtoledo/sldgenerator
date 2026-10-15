@@ -24,7 +24,7 @@ export const ProjectTableRow = ({ row, onDelete }) => {
     <tr onClick={() => navigate(`/project/${row.id}`)}>
       <td>{row.modulesModel}</td>
       <td>{row.modulesQty}</td>
-      <td>2</td>
+      <td>{row.strings.join(' / ')}</td>
       <td>{row.inverter}</td>
       <td>{row.battery}</td>
       <td>{row.customerName}</td>
