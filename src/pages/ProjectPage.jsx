@@ -4,7 +4,6 @@ import { InfoForm } from '../components/InfoForm';
 import { Sldpreview } from '../components/Sldpreview';
 import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { getProjects, saveProject } from '../helpers/projectStorage';
-//import { projects } from '../data/projects';
 
 const emptyForm = {
   inverter: '',

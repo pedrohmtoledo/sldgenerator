@@ -52,42 +52,50 @@ export const InfoForm = ({ formFilled, onSubmit, onChange }) => {
         </fieldset>
         <fieldset>
           <legend> Customer details</legend>
-          <label>Name</label>
-          <input
-            name="customerName"
-            type="text"
-            maxLength={25}
-            value={formFilled.customerName}
-            onChange={onChange}
-          />
-          <label>Address</label>
-          <input
-            name="customerAddress"
-            type="text"
-            maxLength={25}
-            value={formFilled.customerAddress}
-            onChange={onChange}
-          />
-          <label>MPRN</label>
-          <input
-            name="mprn"
-            type="text"
-            inputMode="numeric"
-            maxLength={13}
-            value={formFilled.mprn}
-            onChange={onChange}
-          />
+          <label>
+            Name
+            <input
+              name="customerName"
+              type="text"
+              maxLength={25}
+              value={formFilled.customerName}
+              onChange={onChange}
+            />
+          </label>
+          <label>
+            Address
+            <input
+              name="customerAddress"
+              type="text"
+              maxLength={25}
+              value={formFilled.customerAddress}
+              onChange={onChange}
+            />
+          </label>
+          <label>
+            MPRN
+            <input
+              name="mprn"
+              type="text"
+              inputMode="numeric"
+              maxLength={13}
+              value={formFilled.mprn}
+              onChange={onChange}
+            />
+          </label>
         </fieldset>
         <fieldset>
           <legend>Installer</legend>
-          <label>Installer</label>
-          <input
-            name="installerName"
-            type="text"
-            maxLength={25}
-            value={formFilled.installerName}
-            onChange={onChange}
-          />
+          <label>
+            Installer
+            <input
+              name="installerName"
+              type="text"
+              maxLength={25}
+              value={formFilled.installerName}
+              onChange={onChange}
+            />
+          </label>
         </fieldset>
       </div>
       <button type="submit">Generate Drawing</button>

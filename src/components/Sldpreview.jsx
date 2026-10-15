@@ -5,19 +5,25 @@ import { escapeXml } from '../helpers/escapeXml';
 
 export const Sldpreview = ({ systemConfig, onSave }) => {
   const preview = template1i2str
-    .replaceAll('{{INVERTER}}', systemConfig.inverter.toUpperCase())
-    .replaceAll('{{BATTERY}}', systemConfig.battery.toUpperCase())
+    .replaceAll('{{INVERTER}}', escapeXml(systemConfig.inverter.toUpperCase()))
+    .replaceAll('{{BATTERY}}', escapeXml(systemConfig.battery.toUpperCase()))
     .replaceAll('{{STRING_1}}', systemConfig.strings[0])
     .replaceAll('{{STRING_2}}', systemConfig.strings[1])
-    .replaceAll('{{PV_MODULES}}', systemConfig.modulesModel.toUpperCase())
+    .replaceAll(
+      '{{PV_MODULES}}',
+      escapeXml(systemConfig.modulesModel.toUpperCase())
+    )
     .replaceAll(
       '{{MODULES_QTY}}',
       systemConfig.strings.reduce((prev, curr) => prev + curr, 0)
     )
-    .replaceAll('{{CUSTOMER_NAME}}', systemConfig.customerName.toUpperCase())
+    .replaceAll(
+      '{{CUSTOMER_NAME}}',
+      escapeXml(systemConfig.customerName.toUpperCase())
+    )
     .replaceAll(
       '{{CUSTOMER_ADDRESS}}',
-      systemConfig.customerAddress.toUpperCase()
+      escapeXml(systemConfig.customerAddress.toUpperCase())
     )
     .replaceAll('{{MPRN}}', `MPRN:${systemConfig.mprn}`)
     .replaceAll(
